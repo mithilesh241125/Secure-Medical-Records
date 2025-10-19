@@ -1,0 +1,1242 @@
+[
+  {
+    "patient_mrn": "MRN645955",
+    "doctor_name": "David Wells",
+    "diagnosis": "Depression",
+    "treatment": "Surgery recommended",
+    "prescription": "Albuterol inhaler as needed",
+    "created_at": "2024-01-05T19:38:52"
+  },
+  {
+    "patient_mrn": "MRN645955",
+    "doctor_name": "Angela Grant",
+    "diagnosis": "Sinusitis",
+    "treatment": "Lifestyle changes recommended",
+    "prescription": "Multivitamin daily",
+    "created_at": "2024-11-04T18:34:52"
+  },
+  {
+    "patient_mrn": "MRN645955",
+    "doctor_name": "Mercedes Adams",
+    "diagnosis": "Urinary Tract Infection",
+    "treatment": "Prescribed medication",
+    "prescription": "Lisinopril 10mg daily",
+    "created_at": "2023-11-16T12:32:29"
+  },
+  {
+    "patient_mrn": "MRN645955",
+    "doctor_name": "Nicole Dominguez",
+    "diagnosis": "Asthma",
+    "treatment": "Exercise program",
+    "prescription": "Aspirin 81mg daily",
+    "created_at": "2024-11-09T17:34:04"
+  },
+  {
+    "patient_mrn": "MRN645955",
+    "doctor_name": "Jill Simpson",
+    "diagnosis": "Arthritis",
+    "treatment": "Monitoring required",
+    "prescription": "Omeprazole 20mg daily",
+    "created_at": "2023-11-15T00:21:21"
+  },
+  {
+    "patient_mrn": "MRN508495",
+    "doctor_name": "Brittany Kennedy",
+    "diagnosis": "Conjunctivitis",
+    "treatment": "Monitoring required",
+    "prescription": "Amlodipine 5mg daily",
+    "created_at": "2024-02-08T23:44:49"
+  },
+  {
+    "patient_mrn": "MRN508495",
+    "doctor_name": "Gail Whitney",
+    "diagnosis": "Bronchitis",
+    "treatment": "Surgery recommended",
+    "prescription": "Loratadine 10mg daily",
+    "created_at": "2024-05-04T02:45:59"
+  },
+  {
+    "patient_mrn": "MRN508495",
+    "doctor_name": "Ralph Chang",
+    "diagnosis": "Conjunctivitis",
+    "treatment": "Lifestyle changes recommended",
+    "prescription": "Amlodipine 5mg daily",
+    "created_at": "2024-11-07T16:03:02"
+  },
+  {
+    "patient_mrn": "MRN508495",
+    "doctor_name": "Mrs. Amanda Sullivan DDS",
+    "diagnosis": "Sinusitis",
+    "treatment": "Lifestyle changes recommended",
+    "prescription": "None",
+    "created_at": "2025-08-07T07:32:53"
+  },
+  {
+    "patient_mrn": "MRN508495",
+    "doctor_name": "Robert Carter",
+    "diagnosis": "Migraine",
+    "treatment": "Follow-up appointment scheduled",
+    "prescription": "Omeprazole 20mg daily",
+    "created_at": "2023-12-21T19:51:35"
+  },
+  {
+    "patient_mrn": "MRN271681",
+    "doctor_name": "Raymond Nguyen",
+    "diagnosis": "Allergies",
+    "treatment": "Respiratory therapy",
+    "prescription": "Sertraline 50mg daily",
+    "created_at": "2025-04-11T11:40:40"
+  },
+  {
+    "patient_mrn": "MRN716705",
+    "doctor_name": "John Brown",
+    "diagnosis": "Hypertension",
+    "treatment": "Prescribed medication",
+    "prescription": "None",
+    "created_at": "2024-07-14T16:23:53"
+  },
+  {
+    "patient_mrn": "MRN716705",
+    "doctor_name": "Michelle Murray",
+    "diagnosis": "Depression",
+    "treatment": "Monitoring required",
+    "prescription": "Sertraline 50mg daily",
+    "created_at": "2024-12-15T06:37:15"
+  },
+  {
+    "patient_mrn": "MRN155515",
+    "doctor_name": "Heather Salazar",
+    "diagnosis": "Urinary Tract Infection",
+    "treatment": "Referral to specialist",
+    "prescription": "Loratadine 10mg daily",
+    "created_at": "2025-03-02T20:01:42"
+  },
+  {
+    "patient_mrn": "MRN155515",
+    "doctor_name": "Kerri Kelly",
+    "diagnosis": "Conjunctivitis",
+    "treatment": "Referral to specialist",
+    "prescription": "Loratadine 10mg daily",
+    "created_at": "2025-05-23T12:36:23"
+  },
+  {
+    "patient_mrn": "MRN155515",
+    "doctor_name": "Peter Ward",
+    "diagnosis": "Dizziness",
+    "treatment": "Monitoring required",
+    "prescription": "Loratadine 10mg daily",
+    "created_at": "2025-09-22T07:48:04"
+  },
+  {
+    "patient_mrn": "MRN155515",
+    "doctor_name": "Brian Boyd",
+    "diagnosis": "Diabetes Type 2",
+    "treatment": "Dietary changes",
+    "prescription": "Amlodipine 5mg daily",
+    "created_at": "2024-12-05T21:00:33"
+  },
+  {
+    "patient_mrn": "MRN155515",
+    "doctor_name": "Gerald Russo",
+    "diagnosis": "Headache",
+    "treatment": "Follow-up appointment scheduled",
+    "prescription": "Albuterol inhaler as needed",
+    "created_at": "2025-07-06T12:41:48"
+  },
+  {
+    "patient_mrn": "MRN732469",
+    "doctor_name": "Annette Myers",
+    "diagnosis": "Depression",
+    "treatment": "Exercise program",
+    "prescription": "Albuterol inhaler as needed",
+    "created_at": "2025-01-07T05:34:31"
+  },
+  {
+    "patient_mrn": "MRN732469",
+    "doctor_name": "Jenna Perez",
+    "diagnosis": "Bronchitis",
+    "treatment": "Stress management techniques",
+    "prescription": "Lisinopril 10mg daily",
+    "created_at": "2023-12-03T22:42:41"
+  },
+  {
+    "patient_mrn": "MRN732469",
+    "doctor_name": "Melinda Ayala",
+    "diagnosis": "Fatigue",
+    "treatment": "Lifestyle changes recommended",
+    "prescription": "Levothyroxine 75mcg daily",
+    "created_at": "2025-06-05T18:58:00"
+  },
+  {
+    "patient_mrn": "MRN732469",
+    "doctor_name": "Anna Wright",
+    "diagnosis": "Headache",
+    "treatment": "Prescribed medication",
+    "prescription": "Sertraline 50mg daily",
+    "created_at": "2025-01-20T13:29:51"
+  },
+  {
+    "patient_mrn": "MRN732469",
+    "doctor_name": "Courtney Thompson",
+    "diagnosis": "Dizziness",
+    "treatment": "Exercise program",
+    "prescription": "Sertraline 50mg daily",
+    "created_at": "2025-07-14T07:26:48"
+  },
+  {
+    "patient_mrn": "MRN883017",
+    "doctor_name": "Katherine Serrano",
+    "diagnosis": "Asthma",
+    "treatment": "Prescribed medication",
+    "prescription": "Atorvastatin 20mg daily",
+    "created_at": "2024-02-20T23:45:32"
+  },
+  {
+    "patient_mrn": "MRN883017",
+    "doctor_name": "Nicholas Becker",
+    "diagnosis": "Depression",
+    "treatment": "Dietary changes",
+    "prescription": "Sertraline 50mg daily",
+    "created_at": "2024-01-12T09:41:29"
+  },
+  {
+    "patient_mrn": "MRN883017",
+    "doctor_name": "Virginia Mejia",
+    "diagnosis": "Cough",
+    "treatment": "Respiratory therapy",
+    "prescription": "Aspirin 81mg daily",
+    "created_at": "2024-09-23T10:03:17"
+  },
+  {
+    "patient_mrn": "MRN883017",
+    "doctor_name": "Mathew James",
+    "diagnosis": "Fatigue",
+    "treatment": "Prescribed medication",
+    "prescription": "Multivitamin daily",
+    "created_at": "2025-06-30T05:11:00"
+  },
+  {
+    "patient_mrn": "MRN171961",
+    "doctor_name": "Pamela Clark",
+    "diagnosis": "Nausea",
+    "treatment": "Counseling sessions",
+    "prescription": "Aspirin 81mg daily",
+    "created_at": "2024-10-08T19:24:26"
+  },
+  {
+    "patient_mrn": "MRN171961",
+    "doctor_name": "Joseph Arellano",
+    "diagnosis": "Gastroenteritis",
+    "treatment": "Dietary changes",
+    "prescription": "None",
+    "created_at": "2024-09-06T09:31:31"
+  },
+  {
+    "patient_mrn": "MRN218168",
+    "doctor_name": "Christina Tucker",
+    "diagnosis": "Allergies",
+    "treatment": "Pain management",
+    "prescription": "Aspirin 81mg daily",
+    "created_at": "2024-11-15T22:35:37"
+  },
+  {
+    "patient_mrn": "MRN218168",
+    "doctor_name": "Jill Fitzgerald",
+    "diagnosis": "Back Pain",
+    "treatment": "Surgery recommended",
+    "prescription": "Ibuprofen 400mg as needed",
+    "created_at": "2024-10-30T17:44:18"
+  },
+  {
+    "patient_mrn": "MRN627364",
+    "doctor_name": "Robert Hogan",
+    "diagnosis": "Anxiety",
+    "treatment": "Respiratory therapy",
+    "prescription": "Sertraline 50mg daily",
+    "created_at": "2025-01-26T15:45:12"
+  },
+  {
+    "patient_mrn": "MRN627364",
+    "doctor_name": "Tracy Mccall",
+    "diagnosis": "Nausea",
+    "treatment": "Respiratory therapy",
+    "prescription": "Ibuprofen 400mg as needed",
+    "created_at": "2024-09-09T14:13:38"
+  },
+  {
+    "patient_mrn": "MRN883412",
+    "doctor_name": "Bianca Moore",
+    "diagnosis": "Arthritis",
+    "treatment": "Surgery recommended",
+    "prescription": "Loratadine 10mg daily",
+    "created_at": "2024-05-18T23:05:04"
+  },
+  {
+    "patient_mrn": "MRN883412",
+    "doctor_name": "Amanda Ramirez",
+    "diagnosis": "Back Pain",
+    "treatment": "Respiratory therapy",
+    "prescription": "None",
+    "created_at": "2024-01-02T20:08:13"
+  },
+  {
+    "patient_mrn": "MRN883412",
+    "doctor_name": "Kyle Bryant",
+    "diagnosis": "Back Pain",
+    "treatment": "Referral to specialist",
+    "prescription": "Aspirin 81mg daily",
+    "created_at": "2024-04-13T16:48:44"
+  },
+  {
+    "patient_mrn": "MRN538963",
+    "doctor_name": "Peggy Howard",
+    "diagnosis": "Conjunctivitis",
+    "treatment": "Counseling sessions",
+    "prescription": "Metoprolol 25mg twice daily",
+    "created_at": "2025-08-05T01:38:26"
+  },
+  {
+    "patient_mrn": "MRN873532",
+    "doctor_name": "Yesenia Thomas",
+    "diagnosis": "Fatigue",
+    "treatment": "Counseling sessions",
+    "prescription": "None",
+    "created_at": "2023-12-15T06:45:26"
+  },
+  {
+    "patient_mrn": "MRN873532",
+    "doctor_name": "Joseph Soto",
+    "diagnosis": "Arthritis",
+    "treatment": "Stress management techniques",
+    "prescription": "Metoprolol 25mg twice daily",
+    "created_at": "2023-11-24T20:47:55"
+  },
+  {
+    "patient_mrn": "MRN873532",
+    "doctor_name": "Mikayla Simmons",
+    "diagnosis": "Dizziness",
+    "treatment": "Physical therapy",
+    "prescription": "Lisinopril 10mg daily",
+    "created_at": "2025-07-24T16:53:41"
+  },
+  {
+    "patient_mrn": "MRN735701",
+    "doctor_name": "Caitlin Larsen",
+    "diagnosis": "Hypertension",
+    "treatment": "Lifestyle changes recommended",
+    "prescription": "Multivitamin daily",
+    "created_at": "2025-09-15T23:23:58"
+  },
+  {
+    "patient_mrn": "MRN735701",
+    "doctor_name": "Thomas Navarro DVM",
+    "diagnosis": "Fever",
+    "treatment": "Respiratory therapy",
+    "prescription": "Aspirin 81mg daily",
+    "created_at": "2025-06-13T15:51:52"
+  },
+  {
+    "patient_mrn": "MRN735701",
+    "doctor_name": "Alejandro Gibson",
+    "diagnosis": "Cough",
+    "treatment": "Stress management techniques",
+    "prescription": "Metformin 500mg twice daily",
+    "created_at": "2024-03-08T14:36:53"
+  },
+  {
+    "patient_mrn": "MRN735701",
+    "doctor_name": "Maria Wilkinson",
+    "diagnosis": "Hypertension",
+    "treatment": "Follow-up appointment scheduled",
+    "prescription": "None",
+    "created_at": "2025-08-08T08:58:27"
+  },
+  {
+    "patient_mrn": "MRN179980",
+    "doctor_name": "Brandon Lozano",
+    "diagnosis": "Dizziness",
+    "treatment": "Counseling sessions",
+    "prescription": "Amlodipine 5mg daily",
+    "created_at": "2024-08-12T01:53:59"
+  },
+  {
+    "patient_mrn": "MRN179980",
+    "doctor_name": "Diane Black",
+    "diagnosis": "Back Pain",
+    "treatment": "Monitoring required",
+    "prescription": "Sertraline 50mg daily",
+    "created_at": "2023-12-12T21:37:23"
+  },
+  {
+    "patient_mrn": "MRN179980",
+    "doctor_name": "Patrick Moreno",
+    "diagnosis": "Urinary Tract Infection",
+    "treatment": "Lifestyle changes recommended",
+    "prescription": "Amlodipine 5mg daily",
+    "created_at": "2024-12-21T17:49:20"
+  },
+  {
+    "patient_mrn": "MRN111417",
+    "doctor_name": "Mary Wright MD",
+    "diagnosis": "Migraine",
+    "treatment": "Pain management",
+    "prescription": "Acetaminophen 500mg as needed",
+    "created_at": "2025-06-06T22:22:52"
+  },
+  {
+    "patient_mrn": "MRN111417",
+    "doctor_name": "Stephanie Lopez",
+    "diagnosis": "Asthma",
+    "treatment": "Prescribed medication",
+    "prescription": "Atorvastatin 20mg daily",
+    "created_at": "2024-05-31T18:02:37"
+  },
+  {
+    "patient_mrn": "MRN111417",
+    "doctor_name": "Amanda Bridges",
+    "diagnosis": "Arthritis",
+    "treatment": "Exercise program",
+    "prescription": "Loratadine 10mg daily",
+    "created_at": "2024-09-04T16:20:49"
+  },
+  {
+    "patient_mrn": "MRN577400",
+    "doctor_name": "Gary Taylor",
+    "diagnosis": "Sinusitis",
+    "treatment": "Pain management",
+    "prescription": "Amlodipine 5mg daily",
+    "created_at": "2025-07-17T18:55:00"
+  },
+  {
+    "patient_mrn": "MRN577400",
+    "doctor_name": "Nancy Thomas",
+    "diagnosis": "Dizziness",
+    "treatment": "Surgery recommended",
+    "prescription": "Sertraline 50mg daily",
+    "created_at": "2025-06-26T11:40:08"
+  },
+  {
+    "patient_mrn": "MRN577400",
+    "doctor_name": "Courtney Miles",
+    "diagnosis": "Fever",
+    "treatment": "Physical therapy",
+    "prescription": "Metformin 500mg twice daily",
+    "created_at": "2024-11-01T20:07:50"
+  },
+  {
+    "patient_mrn": "MRN577400",
+    "doctor_name": "Nancy Owen",
+    "diagnosis": "Back Pain",
+    "treatment": "Lifestyle changes recommended",
+    "prescription": "Albuterol inhaler as needed",
+    "created_at": "2024-09-03T14:52:28"
+  },
+  {
+    "patient_mrn": "MRN841448",
+    "doctor_name": "Christine Simpson",
+    "diagnosis": "Dizziness",
+    "treatment": "Monitoring required",
+    "prescription": "Levothyroxine 75mcg daily",
+    "created_at": "2025-06-21T11:32:40"
+  },
+  {
+    "patient_mrn": "MRN841448",
+    "doctor_name": "Ana Nash",
+    "diagnosis": "Nausea",
+    "treatment": "Exercise program",
+    "prescription": "Levothyroxine 75mcg daily",
+    "created_at": "2023-12-01T10:34:09"
+  },
+  {
+    "patient_mrn": "MRN841448",
+    "doctor_name": "Sheila Harris",
+    "diagnosis": "Back Pain",
+    "treatment": "Exercise program",
+    "prescription": "Ibuprofen 400mg as needed",
+    "created_at": "2024-12-15T08:15:02"
+  },
+  {
+    "patient_mrn": "MRN841448",
+    "doctor_name": "Kristopher Mcdowell",
+    "diagnosis": "Hypertension",
+    "treatment": "Counseling sessions",
+    "prescription": "Loratadine 10mg daily",
+    "created_at": "2024-04-12T17:31:19"
+  },
+  {
+    "patient_mrn": "MRN903299",
+    "doctor_name": "Shaun Hart",
+    "diagnosis": "Migraine",
+    "treatment": "Exercise program",
+    "prescription": "Acetaminophen 500mg as needed",
+    "created_at": "2024-06-26T23:58:13"
+  },
+  {
+    "patient_mrn": "MRN903299",
+    "doctor_name": "Martin Smith",
+    "diagnosis": "Nausea",
+    "treatment": "Stress management techniques",
+    "prescription": "Metoprolol 25mg twice daily",
+    "created_at": "2024-04-26T11:32:41"
+  },
+  {
+    "patient_mrn": "MRN903299",
+    "doctor_name": "Michael Reid",
+    "diagnosis": "Diabetes Type 2",
+    "treatment": "Prescribed medication",
+    "prescription": "Ibuprofen 400mg as needed",
+    "created_at": "2024-04-13T04:27:47"
+  },
+  {
+    "patient_mrn": "MRN903299",
+    "doctor_name": "Edward Jenkins",
+    "diagnosis": "Gastroenteritis",
+    "treatment": "Follow-up appointment scheduled",
+    "prescription": "Albuterol inhaler as needed",
+    "created_at": "2023-12-04T09:11:58"
+  },
+  {
+    "patient_mrn": "MRN425311",
+    "doctor_name": "Eric Stout",
+    "diagnosis": "Diabetes Type 2",
+    "treatment": "Follow-up appointment scheduled",
+    "prescription": "Multivitamin daily",
+    "created_at": "2025-02-02T04:19:10"
+  },
+  {
+    "patient_mrn": "MRN425311",
+    "doctor_name": "Taylor Contreras",
+    "diagnosis": "Diabetes Type 2",
+    "treatment": "Exercise program",
+    "prescription": "Aspirin 81mg daily",
+    "created_at": "2025-09-24T18:07:57"
+  },
+  {
+    "patient_mrn": "MRN425311",
+    "doctor_name": "Travis Cordova",
+    "diagnosis": "Gastroenteritis",
+    "treatment": "Surgery recommended",
+    "prescription": "Amlodipine 5mg daily",
+    "created_at": "2024-07-30T19:32:30"
+  },
+  {
+    "patient_mrn": "MRN410038",
+    "doctor_name": "Joshua Adams",
+    "diagnosis": "Anxiety",
+    "treatment": "Physical therapy",
+    "prescription": "Atorvastatin 20mg daily",
+    "created_at": "2023-12-01T06:30:42"
+  },
+  {
+    "patient_mrn": "MRN410038",
+    "doctor_name": "Courtney Hardin",
+    "diagnosis": "Hypertension",
+    "treatment": "Counseling sessions",
+    "prescription": "Atorvastatin 20mg daily",
+    "created_at": "2025-02-14T13:50:46"
+  },
+  {
+    "patient_mrn": "MRN410038",
+    "doctor_name": "Molly Neal",
+    "diagnosis": "Anxiety",
+    "treatment": "Follow-up appointment scheduled",
+    "prescription": "Multivitamin daily",
+    "created_at": "2023-11-21T16:39:27"
+  },
+  {
+    "patient_mrn": "MRN777990",
+    "doctor_name": "Robert Cook",
+    "diagnosis": "Fatigue",
+    "treatment": "Exercise program",
+    "prescription": "Loratadine 10mg daily",
+    "created_at": "2025-06-12T02:24:26"
+  },
+  {
+    "patient_mrn": "MRN777990",
+    "doctor_name": "Scott Williams",
+    "diagnosis": "Back Pain",
+    "treatment": "Monitoring required",
+    "prescription": "Loratadine 10mg daily",
+    "created_at": "2024-08-24T06:52:56"
+  },
+  {
+    "patient_mrn": "MRN777990",
+    "doctor_name": "April Thompson",
+    "diagnosis": "Fever",
+    "treatment": "Prescribed medication",
+    "prescription": "Metoprolol 25mg twice daily",
+    "created_at": "2024-11-03T12:17:29"
+  },
+  {
+    "patient_mrn": "MRN969609",
+    "doctor_name": "Dustin Butler",
+    "diagnosis": "Fatigue",
+    "treatment": "Exercise program",
+    "prescription": "Acetaminophen 500mg as needed",
+    "created_at": "2024-01-15T02:08:50"
+  },
+  {
+    "patient_mrn": "MRN969609",
+    "doctor_name": "Sally Davenport",
+    "diagnosis": "Back Pain",
+    "treatment": "Surgery recommended",
+    "prescription": "Metoprolol 25mg twice daily",
+    "created_at": "2025-07-25T00:25:12"
+  },
+  {
+    "patient_mrn": "MRN969609",
+    "doctor_name": "Brian Gregory",
+    "diagnosis": "Conjunctivitis",
+    "treatment": "Follow-up appointment scheduled",
+    "prescription": "Acetaminophen 500mg as needed",
+    "created_at": "2024-11-28T00:30:55"
+  },
+  {
+    "patient_mrn": "MRN969609",
+    "doctor_name": "Kevin Myers",
+    "diagnosis": "Nausea",
+    "treatment": "Counseling sessions",
+    "prescription": "Atorvastatin 20mg daily",
+    "created_at": "2023-11-08T22:56:45"
+  },
+  {
+    "patient_mrn": "MRN116007",
+    "doctor_name": "James Hernandez",
+    "diagnosis": "Anxiety",
+    "treatment": "Referral to specialist",
+    "prescription": "Loratadine 10mg daily",
+    "created_at": "2025-02-11T05:19:02"
+  },
+  {
+    "patient_mrn": "MRN519557",
+    "doctor_name": "Steven Gould",
+    "diagnosis": "Migraine",
+    "treatment": "Surgery recommended",
+    "prescription": "Albuterol inhaler as needed",
+    "created_at": "2024-03-05T08:32:41"
+  },
+  {
+    "patient_mrn": "MRN519557",
+    "doctor_name": "Kimberly Saunders",
+    "diagnosis": "Fatigue",
+    "treatment": "Dietary changes",
+    "prescription": "Aspirin 81mg daily",
+    "created_at": "2024-08-28T21:30:03"
+  },
+  {
+    "patient_mrn": "MRN310284",
+    "doctor_name": "James Romero",
+    "diagnosis": "Bronchitis",
+    "treatment": "Referral to specialist",
+    "prescription": "Omeprazole 20mg daily",
+    "created_at": "2024-08-28T06:48:11"
+  },
+  {
+    "patient_mrn": "MRN310284",
+    "doctor_name": "Mr. Mark Terry",
+    "diagnosis": "Fever",
+    "treatment": "Dietary changes",
+    "prescription": "Aspirin 81mg daily",
+    "created_at": "2024-07-11T19:55:41"
+  },
+  {
+    "patient_mrn": "MRN310284",
+    "doctor_name": "Stacy Thompson",
+    "diagnosis": "Nausea",
+    "treatment": "Dietary changes",
+    "prescription": "Sertraline 50mg daily",
+    "created_at": "2024-07-30T23:21:12"
+  },
+  {
+    "patient_mrn": "MRN714284",
+    "doctor_name": "Lauren Alexander",
+    "diagnosis": "Fever",
+    "treatment": "Stress management techniques",
+    "prescription": "Multivitamin daily",
+    "created_at": "2024-04-24T22:56:55"
+  },
+  {
+    "patient_mrn": "MRN714284",
+    "doctor_name": "Teresa Nelson",
+    "diagnosis": "Arthritis",
+    "treatment": "Dietary changes",
+    "prescription": "Ibuprofen 400mg as needed",
+    "created_at": "2024-10-30T20:43:52"
+  },
+  {
+    "patient_mrn": "MRN348865",
+    "doctor_name": "Christine Bryant",
+    "diagnosis": "Migraine",
+    "treatment": "Monitoring required",
+    "prescription": "Multivitamin daily",
+    "created_at": "2024-11-12T13:31:40"
+  },
+  {
+    "patient_mrn": "MRN348865",
+    "doctor_name": "Eric Owens",
+    "diagnosis": "Depression",
+    "treatment": "Counseling sessions",
+    "prescription": "Metformin 500mg twice daily",
+    "created_at": "2025-07-06T15:45:52"
+  },
+  {
+    "patient_mrn": "MRN320829",
+    "doctor_name": "Gina Barrett",
+    "diagnosis": "Sinusitis",
+    "treatment": "Stress management techniques",
+    "prescription": "Loratadine 10mg daily",
+    "created_at": "2024-08-12T00:44:15"
+  },
+  {
+    "patient_mrn": "MRN320829",
+    "doctor_name": "Rachel Reynolds",
+    "diagnosis": "Bronchitis",
+    "treatment": "Exercise program",
+    "prescription": "Loratadine 10mg daily",
+    "created_at": "2024-06-19T07:44:18"
+  },
+  {
+    "patient_mrn": "MRN320829",
+    "doctor_name": "David Jones",
+    "diagnosis": "Bronchitis",
+    "treatment": "Prescribed medication",
+    "prescription": "Omeprazole 20mg daily",
+    "created_at": "2024-10-20T19:34:37"
+  },
+  {
+    "patient_mrn": "MRN320829",
+    "doctor_name": "Steve Gaines",
+    "diagnosis": "Allergies",
+    "treatment": "Prescribed medication",
+    "prescription": "Albuterol inhaler as needed",
+    "created_at": "2025-08-20T07:52:38"
+  },
+  {
+    "patient_mrn": "MRN928101",
+    "doctor_name": "Marissa Thompson",
+    "diagnosis": "Fever",
+    "treatment": "Follow-up appointment scheduled",
+    "prescription": "Omeprazole 20mg daily",
+    "created_at": "2025-10-15T05:03:17"
+  },
+  {
+    "patient_mrn": "MRN928101",
+    "doctor_name": "Wendy Morris",
+    "diagnosis": "Anxiety",
+    "treatment": "Pain management",
+    "prescription": "Omeprazole 20mg daily",
+    "created_at": "2025-07-04T23:44:51"
+  },
+  {
+    "patient_mrn": "MRN928101",
+    "doctor_name": "Patrick Woods",
+    "diagnosis": "Gastroenteritis",
+    "treatment": "Lifestyle changes recommended",
+    "prescription": "Aspirin 81mg daily",
+    "created_at": "2025-01-13T03:14:33"
+  },
+  {
+    "patient_mrn": "MRN928101",
+    "doctor_name": "Jason Fry",
+    "diagnosis": "Anxiety",
+    "treatment": "Respiratory therapy",
+    "prescription": "Ibuprofen 400mg as needed",
+    "created_at": "2025-08-17T06:41:40"
+  },
+  {
+    "patient_mrn": "MRN322219",
+    "doctor_name": "Shannon Roberts",
+    "diagnosis": "Hypertension",
+    "treatment": "Surgery recommended",
+    "prescription": "Multivitamin daily",
+    "created_at": "2024-12-31T23:56:37"
+  },
+  {
+    "patient_mrn": "MRN322219",
+    "doctor_name": "Matthew Schneider",
+    "diagnosis": "Conjunctivitis",
+    "treatment": "Prescribed medication",
+    "prescription": "Loratadine 10mg daily",
+    "created_at": "2024-06-01T22:16:44"
+  },
+  {
+    "patient_mrn": "MRN919817",
+    "doctor_name": "Clifford Lindsey",
+    "diagnosis": "Gastroenteritis",
+    "treatment": "Referral to specialist",
+    "prescription": "None",
+    "created_at": "2023-12-30T08:41:18"
+  },
+  {
+    "patient_mrn": "MRN919817",
+    "doctor_name": "Lisa Jones",
+    "diagnosis": "Depression",
+    "treatment": "Counseling sessions",
+    "prescription": "Lisinopril 10mg daily",
+    "created_at": "2024-06-10T17:36:36"
+  },
+  {
+    "patient_mrn": "MRN720981",
+    "doctor_name": "Aaron Gomez",
+    "diagnosis": "Sinusitis",
+    "treatment": "Dietary changes",
+    "prescription": "Aspirin 81mg daily",
+    "created_at": "2024-10-24T00:34:26"
+  },
+  {
+    "patient_mrn": "MRN975052",
+    "doctor_name": "Christopher Hammond",
+    "diagnosis": "Fatigue",
+    "treatment": "Surgery recommended",
+    "prescription": "None",
+    "created_at": "2025-06-20T17:58:42"
+  },
+  {
+    "patient_mrn": "MRN524158",
+    "doctor_name": "Chelsey Johnson",
+    "diagnosis": "Nausea",
+    "treatment": "Pain management",
+    "prescription": "Lisinopril 10mg daily",
+    "created_at": "2025-05-05T13:47:12"
+  },
+  {
+    "patient_mrn": "MRN991975",
+    "doctor_name": "Jon Hernandez",
+    "diagnosis": "Asthma",
+    "treatment": "Follow-up appointment scheduled",
+    "prescription": "Omeprazole 20mg daily",
+    "created_at": "2025-05-15T12:51:46"
+  },
+  {
+    "patient_mrn": "MRN991975",
+    "doctor_name": "Richard Smith",
+    "diagnosis": "Fever",
+    "treatment": "Respiratory therapy",
+    "prescription": "Aspirin 81mg daily",
+    "created_at": "2024-10-13T09:23:46"
+  },
+  {
+    "patient_mrn": "MRN991975",
+    "doctor_name": "Samantha Sanford",
+    "diagnosis": "Sinusitis",
+    "treatment": "Exercise program",
+    "prescription": "Multivitamin daily",
+    "created_at": "2025-07-28T05:14:34"
+  },
+  {
+    "patient_mrn": "MRN991975",
+    "doctor_name": "Gregory Tanner",
+    "diagnosis": "Asthma",
+    "treatment": "Dietary changes",
+    "prescription": "Amlodipine 5mg daily",
+    "created_at": "2025-03-30T09:00:53"
+  },
+  {
+    "patient_mrn": "MRN409457",
+    "doctor_name": "Joseph Castillo",
+    "diagnosis": "Bronchitis",
+    "treatment": "Prescribed medication",
+    "prescription": "Omeprazole 20mg daily",
+    "created_at": "2024-01-21T17:45:56"
+  },
+  {
+    "patient_mrn": "MRN409457",
+    "doctor_name": "Micheal Thompson",
+    "diagnosis": "Hypertension",
+    "treatment": "Stress management techniques",
+    "prescription": "Metoprolol 25mg twice daily",
+    "created_at": "2024-08-21T06:21:23"
+  },
+  {
+    "patient_mrn": "MRN409457",
+    "doctor_name": "Donald Pierce",
+    "diagnosis": "Sinusitis",
+    "treatment": "Dietary changes",
+    "prescription": "Atorvastatin 20mg daily",
+    "created_at": "2024-06-12T23:15:09"
+  },
+  {
+    "patient_mrn": "MRN409457",
+    "doctor_name": "Troy Brown",
+    "diagnosis": "Back Pain",
+    "treatment": "Counseling sessions",
+    "prescription": "Amlodipine 5mg daily",
+    "created_at": "2025-03-03T10:39:49"
+  },
+  {
+    "patient_mrn": "MRN284571",
+    "doctor_name": "David Mendoza",
+    "diagnosis": "Asthma",
+    "treatment": "Monitoring required",
+    "prescription": "Levothyroxine 75mcg daily",
+    "created_at": "2025-08-03T21:14:04"
+  },
+  {
+    "patient_mrn": "MRN284571",
+    "doctor_name": "Brent Wells",
+    "diagnosis": "Bronchitis",
+    "treatment": "Prescribed medication",
+    "prescription": "Metoprolol 25mg twice daily",
+    "created_at": "2025-02-01T01:26:15"
+  },
+  {
+    "patient_mrn": "MRN284571",
+    "doctor_name": "Madison Lopez",
+    "diagnosis": "Urinary Tract Infection",
+    "treatment": "Prescribed medication",
+    "prescription": "Metformin 500mg twice daily",
+    "created_at": "2024-05-13T00:12:47"
+  },
+  {
+    "patient_mrn": "MRN284571",
+    "doctor_name": "Michael King",
+    "diagnosis": "Asthma",
+    "treatment": "Dietary changes",
+    "prescription": "Ibuprofen 400mg as needed",
+    "created_at": "2024-04-16T04:26:57"
+  },
+  {
+    "patient_mrn": "MRN284571",
+    "doctor_name": "Alison Espinoza",
+    "diagnosis": "Fatigue",
+    "treatment": "Pain management",
+    "prescription": "Amlodipine 5mg daily",
+    "created_at": "2023-12-31T02:00:44"
+  },
+  {
+    "patient_mrn": "MRN847266",
+    "doctor_name": "Jennifer Johnson DDS",
+    "diagnosis": "Sinusitis",
+    "treatment": "Counseling sessions",
+    "prescription": "Metoprolol 25mg twice daily",
+    "created_at": "2025-04-09T10:28:57"
+  },
+  {
+    "patient_mrn": "MRN847266",
+    "doctor_name": "Phillip Gregory",
+    "diagnosis": "Headache",
+    "treatment": "Stress management techniques",
+    "prescription": "Omeprazole 20mg daily",
+    "created_at": "2025-07-03T18:27:54"
+  },
+  {
+    "patient_mrn": "MRN847266",
+    "doctor_name": "Amanda Miller",
+    "diagnosis": "Hypertension",
+    "treatment": "Prescribed medication",
+    "prescription": "Levothyroxine 75mcg daily",
+    "created_at": "2023-10-26T06:09:51"
+  },
+  {
+    "patient_mrn": "MRN847266",
+    "doctor_name": "Jennifer Craig",
+    "diagnosis": "Hypertension",
+    "treatment": "Monitoring required",
+    "prescription": "Amlodipine 5mg daily",
+    "created_at": "2024-07-28T21:51:54"
+  },
+  {
+    "patient_mrn": "MRN856734",
+    "doctor_name": "Katie Robinson",
+    "diagnosis": "Migraine",
+    "treatment": "Referral to specialist",
+    "prescription": "Aspirin 81mg daily",
+    "created_at": "2024-09-21T13:40:49"
+  },
+  {
+    "patient_mrn": "MRN856734",
+    "doctor_name": "Danielle Collier",
+    "diagnosis": "Conjunctivitis",
+    "treatment": "Counseling sessions",
+    "prescription": "Acetaminophen 500mg as needed",
+    "created_at": "2024-01-31T13:31:09"
+  },
+  {
+    "patient_mrn": "MRN856734",
+    "doctor_name": "Randy Jacobs",
+    "diagnosis": "Cough",
+    "treatment": "Physical therapy",
+    "prescription": "Multivitamin daily",
+    "created_at": "2023-11-23T22:28:59"
+  },
+  {
+    "patient_mrn": "MRN856734",
+    "doctor_name": "Cassie Deleon",
+    "diagnosis": "Gastroenteritis",
+    "treatment": "Pain management",
+    "prescription": "Metoprolol 25mg twice daily",
+    "created_at": "2024-02-24T09:40:32"
+  },
+  {
+    "patient_mrn": "MRN293823",
+    "doctor_name": "Ryan Serrano",
+    "diagnosis": "Allergies",
+    "treatment": "Exercise program",
+    "prescription": "Loratadine 10mg daily",
+    "created_at": "2023-11-01T15:51:59"
+  },
+  {
+    "patient_mrn": "MRN293823",
+    "doctor_name": "Michelle Lewis",
+    "diagnosis": "Cough",
+    "treatment": "Lifestyle changes recommended",
+    "prescription": "Ibuprofen 400mg as needed",
+    "created_at": "2025-02-08T19:26:35"
+  },
+  {
+    "patient_mrn": "MRN293823",
+    "doctor_name": "Shirley Escobar",
+    "diagnosis": "Asthma",
+    "treatment": "Stress management techniques",
+    "prescription": "Albuterol inhaler as needed",
+    "created_at": "2024-06-03T01:55:47"
+  },
+  {
+    "patient_mrn": "MRN293823",
+    "doctor_name": "David Schmidt",
+    "diagnosis": "Migraine",
+    "treatment": "Follow-up appointment scheduled",
+    "prescription": "Metformin 500mg twice daily",
+    "created_at": "2023-11-02T20:36:19"
+  },
+  {
+    "patient_mrn": "MRN330481",
+    "doctor_name": "Jason Branch",
+    "diagnosis": "Back Pain",
+    "treatment": "Respiratory therapy",
+    "prescription": "Aspirin 81mg daily",
+    "created_at": "2024-07-11T16:22:25"
+  },
+  {
+    "patient_mrn": "MRN330481",
+    "doctor_name": "Derek Hall",
+    "diagnosis": "Gastroenteritis",
+    "treatment": "Counseling sessions",
+    "prescription": "Lisinopril 10mg daily",
+    "created_at": "2025-03-17T04:15:15"
+  },
+  {
+    "patient_mrn": "MRN330481",
+    "doctor_name": "Patrick Perez",
+    "diagnosis": "Fever",
+    "treatment": "Exercise program",
+    "prescription": "Lisinopril 10mg daily",
+    "created_at": "2024-06-04T02:31:13"
+  },
+  {
+    "patient_mrn": "MRN155227",
+    "doctor_name": "Brittany Ortiz",
+    "diagnosis": "Conjunctivitis",
+    "treatment": "Respiratory therapy",
+    "prescription": "Levothyroxine 75mcg daily",
+    "created_at": "2023-11-20T21:08:36"
+  },
+  {
+    "patient_mrn": "MRN155227",
+    "doctor_name": "Anthony Phillips",
+    "diagnosis": "Fatigue",
+    "treatment": "Monitoring required",
+    "prescription": "Metoprolol 25mg twice daily",
+    "created_at": "2024-05-16T02:29:45"
+  },
+  {
+    "patient_mrn": "MRN155227",
+    "doctor_name": "Joseph Carter",
+    "diagnosis": "Asthma",
+    "treatment": "Pain management",
+    "prescription": "Atorvastatin 20mg daily",
+    "created_at": "2024-10-17T16:39:02"
+  },
+  {
+    "patient_mrn": "MRN155227",
+    "doctor_name": "Chelsea Maldonado",
+    "diagnosis": "Sinusitis",
+    "treatment": "Exercise program",
+    "prescription": "None",
+    "created_at": "2024-01-30T08:06:10"
+  },
+  {
+    "patient_mrn": "MRN155227",
+    "doctor_name": "Robert Hunt",
+    "diagnosis": "Migraine",
+    "treatment": "Stress management techniques",
+    "prescription": "Atorvastatin 20mg daily",
+    "created_at": "2024-10-14T04:59:12"
+  },
+  {
+    "patient_mrn": "MRN608093",
+    "doctor_name": "James Reyes",
+    "diagnosis": "Asthma",
+    "treatment": "Physical therapy",
+    "prescription": "Omeprazole 20mg daily",
+    "created_at": "2024-07-20T11:22:17"
+  },
+  {
+    "patient_mrn": "MRN608093",
+    "doctor_name": "Hannah Abbott",
+    "diagnosis": "Headache",
+    "treatment": "Surgery recommended",
+    "prescription": "Lisinopril 10mg daily",
+    "created_at": "2024-02-14T13:47:31"
+  },
+  {
+    "patient_mrn": "MRN608093",
+    "doctor_name": "Anna Crosby",
+    "diagnosis": "Asthma",
+    "treatment": "Prescribed medication",
+    "prescription": "Atorvastatin 20mg daily",
+    "created_at": "2024-07-29T05:43:56"
+  },
+  {
+    "patient_mrn": "MRN625956",
+    "doctor_name": "Stephanie Dean",
+    "diagnosis": "Fatigue",
+    "treatment": "Prescribed medication",
+    "prescription": "Multivitamin daily",
+    "created_at": "2024-11-16T13:59:10"
+  },
+  {
+    "patient_mrn": "MRN625956",
+    "doctor_name": "Sarah Thomas",
+    "diagnosis": "Dizziness",
+    "treatment": "Monitoring required",
+    "prescription": "Sertraline 50mg daily",
+    "created_at": "2024-07-22T13:18:30"
+  },
+  {
+    "patient_mrn": "MRN625956",
+    "doctor_name": "Nathan Rose",
+    "diagnosis": "Dizziness",
+    "treatment": "Exercise program",
+    "prescription": "Amlodipine 5mg daily",
+    "created_at": "2024-01-04T20:09:50"
+  },
+  {
+    "patient_mrn": "MRN625956",
+    "doctor_name": "Megan Mccarthy",
+    "diagnosis": "Urinary Tract Infection",
+    "treatment": "Respiratory therapy",
+    "prescription": "Sertraline 50mg daily",
+    "created_at": "2023-10-21T03:26:37"
+  },
+  {
+    "patient_mrn": "MRN274596",
+    "doctor_name": "Tina Carrillo",
+    "diagnosis": "Conjunctivitis",
+    "treatment": "Physical therapy",
+    "prescription": "Multivitamin daily",
+    "created_at": "2024-01-28T09:20:12"
+  },
+  {
+    "patient_mrn": "MRN192568",
+    "doctor_name": "Tanner Carr",
+    "diagnosis": "Nausea",
+    "treatment": "Respiratory therapy",
+    "prescription": "Sertraline 50mg daily",
+    "created_at": "2024-10-22T14:16:20"
+  },
+  {
+    "patient_mrn": "MRN192568",
+    "doctor_name": "Aaron Peters",
+    "diagnosis": "Headache",
+    "treatment": "Stress management techniques",
+    "prescription": "Multivitamin daily",
+    "created_at": "2025-09-07T02:14:16"
+  },
+  {
+    "patient_mrn": "MRN192568",
+    "doctor_name": "Patricia Sullivan",
+    "diagnosis": "Hypertension",
+    "treatment": "Exercise program",
+    "prescription": "Atorvastatin 20mg daily",
+    "created_at": "2024-02-05T13:34:26"
+  },
+  {
+    "patient_mrn": "MRN192568",
+    "doctor_name": "Holly Rosario",
+    "diagnosis": "Back Pain",
+    "treatment": "Prescribed medication",
+    "prescription": "Loratadine 10mg daily",
+    "created_at": "2024-05-29T06:45:32"
+  },
+  {
+    "patient_mrn": "MRN192568",
+    "doctor_name": "Angela Banks",
+    "diagnosis": "Diabetes Type 2",
+    "treatment": "Pain management",
+    "prescription": "Aspirin 81mg daily",
+    "created_at": "2024-07-23T01:37:10"
+  },
+  {
+    "patient_mrn": "MRN691900",
+    "doctor_name": "Jessica Perez",
+    "diagnosis": "Cough",
+    "treatment": "Follow-up appointment scheduled",
+    "prescription": "Lisinopril 10mg daily",
+    "created_at": "2023-12-23T21:40:45"
+  },
+  {
+    "patient_mrn": "MRN691900",
+    "doctor_name": "Robert Barajas",
+    "diagnosis": "Cough",
+    "treatment": "Lifestyle changes recommended",
+    "prescription": "Lisinopril 10mg daily",
+    "created_at": "2025-06-04T21:50:02"
+  },
+  {
+    "patient_mrn": "MRN691900",
+    "doctor_name": "Laura Thompson",
+    "diagnosis": "Allergies",
+    "treatment": "Referral to specialist",
+    "prescription": "Multivitamin daily",
+    "created_at": "2025-01-07T03:39:33"
+  },
+  {
+    "patient_mrn": "MRN691900",
+    "doctor_name": "Matthew Perkins",
+    "diagnosis": "Hypertension",
+    "treatment": "Lifestyle changes recommended",
+    "prescription": "Albuterol inhaler as needed",
+    "created_at": "2023-11-10T04:50:58"
+  },
+  {
+    "patient_mrn": "MRN691900",
+    "doctor_name": "Joshua Glass",
+    "diagnosis": "Sinusitis",
+    "treatment": "Lifestyle changes recommended",
+    "prescription": "Omeprazole 20mg daily",
+    "created_at": "2025-04-21T02:03:33"
+  },
+  {
+    "patient_mrn": "MRN415560",
+    "doctor_name": "Dillon Nelson",
+    "diagnosis": "Fever",
+    "treatment": "Follow-up appointment scheduled",
+    "prescription": "Multivitamin daily",
+    "created_at": "2025-01-14T01:43:06"
+  },
+  {
+    "patient_mrn": "MRN440181",
+    "doctor_name": "Karen Cruz",
+    "diagnosis": "Nausea",
+    "treatment": "Prescribed medication",
+    "prescription": "Multivitamin daily",
+    "created_at": "2025-01-11T17:04:59"
+  },
+  {
+    "patient_mrn": "MRN440181",
+    "doctor_name": "Susan Mayer",
+    "diagnosis": "Urinary Tract Infection",
+    "treatment": "Exercise program",
+    "prescription": "Metoprolol 25mg twice daily",
+    "created_at": "2024-08-31T23:03:12"
+  },
+  {
+    "patient_mrn": "MRN440181",
+    "doctor_name": "Megan Hernandez",
+    "diagnosis": "Hypertension",
+    "treatment": "Respiratory therapy",
+    "prescription": "Ibuprofen 400mg as needed",
+    "created_at": "2025-01-16T23:09:55"
+  }
+]

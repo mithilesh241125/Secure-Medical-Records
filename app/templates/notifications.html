@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}Notifications - Secure Medical Records{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>System Notifications</h1>
+    <div>
+        <a href="{{ url_for('main.dashboard') }}" class="btn btn-secondary">Back to Dashboard</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Recent Security Alerts</h5>
+            </div>
+            <div class="card-body">
+                {% if notifications %}
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Description</th>
+                                <th>User</th>
+                                <th>IP Address</th>
+                                <th>Time</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for notification in notifications %}
+                            <tr>
+                                <td>
+                                    {% if notification.action == 'suspicious_activity_rate' %}
+                                    <span class="badge bg-danger">High Activity</span>
+                                    {% elif notification.action == 'multiple_integrity_violations' %}
+                                    <span class="badge bg-warning">Integrity Issues</span>
+                                    {% elif notification.action == 'unusual_access_time' %}
+                                    <span class="badge bg-info">Unusual Time</span>
+                                    {% elif notification.action == 'brute_force_attempt' %}
+                                    <span class="badge bg-danger">Brute Force</span>
+                                    {% elif notification.action == 'multiple_ip_access' %}
+                                    <span class="badge bg-warning">Multiple IPs</span>
+                                    {% else %}
+                                    <span class="badge bg-secondary">{{ notification.action }}</span>
+                                    {% endif %}
+                                </td>
+                                <td>{{ notification.details }}</td>
+                                <td>{{ notification.user.username }}</td>
+                                <td>{{ notification.ip_address }}</td>
+                                <td>{{ notification.timestamp | datetime_utc('%Y-%m-%d %H:%M:%S') }}</td>
+                                <td>
+                                    {% if notification.is_resolved %}
+                                    <span class="badge bg-success">Resolved</span>
+                                    {% else %}
+                                    <span class="badge bg-warning">Unresolved</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="text-center py-5">
+                    <i class="bi bi-bell-slash fs-1 text-muted mb-3"></i>
+                    <p class="text-muted">No security alerts at this time.</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,537 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Secure Medical Records{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Dashboard</h1>
+    <div>
+        {% if session.user_role == 'admin' %}
+        <a href="{{ url_for('auth.list_users') }}" class="btn btn-primary">User Management</a>
+        <a href="{{ url_for('main.audit_logs') }}" class="btn btn-secondary">Audit Logs</a>
+        <a href="{{ url_for('main.anomalies') }}" class="btn btn-warning">Anomalies</a>
+        {% elif session.user_role == 'doctor' %}
+        <a href="{{ url_for('main.patients') }}" class="btn btn-primary">View Patients</a>
+        {% elif session.user_role == 'nurse' %}
+        <a href="{{ url_for('main.patients') }}" class="btn btn-primary">View Patients</a>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Summary Cards -->
+<div class="row mb-4">
+    <div class="col-md-4">
+        <div class="card text-white bg-primary">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h5 class="card-title">Patients</h5>
+                        <h2>{{ patients_count|default(0) }}</h2>
+                    </div>
+                    <div class="fs-1">
+                        <i class="bi bi-people"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-success">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h5 class="card-title">Records</h5>
+                        <h2>{{ records_count|default(0) }}</h2>
+                    </div>
+                    <div class="fs-1">
+                        <i class="bi bi-file-medical"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if session.user_role == 'admin' %}
+    <div class="col-md-4">
+        <div class="card text-white bg-info">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h5 class="card-title">Users</h5>
+                        <h2>{{ users_count|default(0) }}</h2>
+                    </div>
+                    <div class="fs-1">
+                        <i class="bi bi-person-badge"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-warning">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h5 class="card-title">Anomalies</h5>
+                        <h2>{{ unresolved_anomalies|default(0) }}</h2>
+                    </div>
+                    <div class="fs-1">
+                        <i class="bi bi-exclamation-triangle"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<!-- Charts Row -->
+<div class="row mb-4">
+    <!-- Anomaly Detection Chart -->
+    {% if session.user_role == 'admin' %}
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5>Anomaly Detection Overview</h5>
+            </div>
+            <div class="card-body">
+                <div class="d-flex justify-content-center mb-3">
+                    <div class="chart-container" style="position: relative; height:200px; width:200px">
+                        <canvas id="anomalyChart"></canvas>
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <div class="col">
+                        <h4>{{ total_anomalies|default(0) }}</h4>
+                        <p class="text-muted">Total</p>
+                    </div>
+                    <div class="col">
+                        <h4>{{ resolved_anomalies|default(0) }}</h4>
+                        <p class="text-success">Resolved</p>
+                    </div>
+                    <div class="col">
+                        <h4>{{ unresolved_anomalies|default(0) }}</h4>
+                        <p class="text-warning">Unresolved</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- User Distribution Chart -->
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5>User Role Distribution</h5>
+            </div>
+            <div class="card-body">
+                <div class="d-flex justify-content-center mb-3">
+                    <div class="chart-container" style="position: relative; height:200px; width:200px">
+                        <canvas id="userChart"></canvas>
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <div class="col">
+                        <h4>{{ admin_count|default(0) }}</h4>
+                        <p class="text-muted">Admins</p>
+                    </div>
+                    <div class="col">
+                        <h4>{{ doctor_count|default(0) }}</h4>
+                        <p class="text-primary">Doctors</p>
+                    </div>
+                    <div class="col">
+                        <h4>{{ nurse_count|default(0) }}</h4>
+                        <p class="text-info">Nurses</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <!-- Patient Details Section for Doctors and Nurses -->
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Patient Overview</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>Recent Patients</h6>
+                        <p>You have access to {{ patients_count|default(0) }} patient records.</p>
+                        <a href="{{ url_for('main.patients') }}" class="btn btn-primary">View Patient Records</a>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>Your Access Level</h6>
+                        <p>
+                            {% if session.user_role == 'doctor' %}
+                            As a doctor, you can view, add, and edit patient records.
+                            {% elif session.user_role == 'nurse' %}
+                            As a nurse, you can view patient records.
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<!-- Recent Activity and System Status -->
+<div class="row">
+    {% if session.user_role == 'admin' %}
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5>Recent Activity (Last 24 Hours)</h5>
+            </div>
+            <div class="card-body">
+                <div class="row text-center mb-3">
+                    <div class="col">
+                        <div class="bg-light p-2 rounded">
+                            <h4>{{ recent_patients|default(0) }}</h4>
+                            <p class="mb-0">New Patients</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="bg-light p-2 rounded">
+                            <h4>{{ recent_records|default(0) }}</h4>
+                            <p class="mb-0">New Records</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="bg-light p-2 rounded">
+                            <h4>{{ recent_audit_logs|default(0) }}</h4>
+                            <p class="mb-0">Audit Logs</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="bg-light p-2 rounded">
+                            <h4>{{ recent_anomalies|default(0) }}</h4>
+                            <p class="mb-0">Anomalies</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h6>Recent Audit Logs</h6>
+                {% if audits %}
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Action</th>
+                                <th>Table</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for log in audits %}
+                            <tr>
+                                <td>{{ log.user.username }}</td>
+                                <td>
+                                    {% if log.action == 'create' %}
+                                    <span class="badge bg-success">{{ log.action }}</span>
+                                    {% elif log.action == 'update' %}
+                                    <span class="badge bg-warning">{{ log.action }}</span>
+                                    {% elif log.action == 'delete' %}
+                                    <span class="badge bg-danger">{{ log.action }}</span>
+                                    {% else %}
+                                    <span class="badge bg-info">{{ log.action }}</span>
+                                    {% endif %}
+                                </td>
+                                <td>{{ log.table_name }}</td>
+                                <td>{{ log.timestamp | datetime_utc('%H:%M') }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <p>No recent activity.</p>
+                {% endif %}
+            </div>
+        </div>
+        
+        <!-- Top Active Users -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h5>Top Active Users</h5>
+            </div>
+            <div class="card-body">
+                {% if top_users %}
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Activity Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for username, activity_count in top_users %}
+                            <tr>
+                                <td>{{ username }}</td>
+                                <td>{{ activity_count }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <p>No user activity data available.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    
+    <div class="{% if session.user_role == 'admin' %}col-md-6{% else %}col-md-12{% endif %}">
+        <div class="card">
+            <div class="card-header">
+                <h5>System Status</h5>
+            </div>
+            <div class="card-body">
+                {% if session.user_role == 'admin' and unresolved_anomalies > 0 %}
+                <div class="alert alert-warning">
+                    <h6><i class="bi bi-exclamation-triangle"></i> Unresolved Anomalies: {{ unresolved_anomalies }}</h6>
+                    <p>Please check the anomalies section for details.</p>
+                    <a href="{{ url_for('main.anomalies') }}" class="btn btn-warning btn-sm">View Anomalies</a>
+                </div>
+                {% elif session.user_role == 'admin' %}
+                <div class="alert alert-success">
+                    <h6><i class="bi bi-check-circle"></i> System Status: Normal</h6>
+                    <p>No unresolved anomalies detected.</p>
+                </div>
+                {% else %}
+                <div class="alert alert-info">
+                    <h6><i class="bi bi-info-circle"></i> System Access</h6>
+                    <p>
+                        {% if session.user_role == 'doctor' %}
+                        You have doctor-level access to patient records.
+                        {% elif session.user_role == 'nurse' %}
+                        You have nurse-level access to patient records.
+                        {% endif %}
+                    </p>
+                </div>
+                {% endif %}
+                
+                {% if session.user_role == 'admin' %}
+                <!-- Recent Anomalies -->
+                <div class="mt-3">
+                    <h6>Recent Anomalies</h6>
+                    {% if recent_anomalies_detailed %}
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>User</th>
+                                    <th>Action</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for anomaly, user in recent_anomalies_detailed %}
+                                <tr>
+                                    <td>{{ user.username }}</td>
+                                    <td>
+                                        {% if anomaly.action == 'suspicious_activity_rate' %}
+                                        <span class="badge bg-danger">{{ anomaly.action }}</span>
+                                        {% elif anomaly.action == 'multiple_integrity_violations' %}
+                                        <span class="badge bg-warning">{{ anomaly.action }}</span>
+                                        {% elif anomaly.action == 'unusual_access_time' %}
+                                        <span class="badge bg-info">{{ anomaly.action }}</span>
+                                        {% else %}
+                                        <span class="badge bg-secondary">{{ anomaly.action }}</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>{{ anomaly.timestamp | datetime_utc('%H:%M') }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% else %}
+                    <p class="text-muted">No recent anomalies detected</p>
+                    {% endif %}
+                </div>
+                
+                <div class="mt-3">
+                    <h6>Activity Distribution</h6>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Anomaly Types</h6>
+                            {% if anomaly_types %}
+                            <ul class="list-group">
+                                {% for action, count in anomaly_types %}
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    {{ action }}
+                                    <span class="badge bg-warning rounded-pill">{{ count }}</span>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                            {% else %}
+                            <p class="text-muted">No anomalies recorded</p>
+                            {% endif %}
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Audit Actions</h6>
+                            {% if audit_action_types %}
+                            <ul class="list-group">
+                                {% for action, count in audit_action_types %}
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    {{ action }}
+                                    <span class="badge bg-info rounded-pill">{{ count }}</span>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                            {% else %}
+                            <p class="text-muted">No audit logs recorded</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Predictive Analytics Section -->
+                <div class="mt-4">
+                    <h5>Predictive Analytics</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h6>Model Status</h6>
+                                </div>
+                                <div class="card-body">
+                                    {% if analytics_result and analytics_result.trained %}
+                                    <div class="alert alert-success">
+                                        <h6><i class="bi bi-check-circle"></i> Analytics Model Trained</h6>
+                                        <p>Model trained on {{ analytics_result.samples }} medical records</p>
+                                        <p>Model accuracy: {{ "%.2f"|format(analytics_result.mse) }} MSE</p>
+                                    </div>
+                                    {% else %}
+                                    <div class="alert alert-warning">
+                                        <h6><i class="bi bi-exclamation-triangle"></i> Model Not Trained</h6>
+                                        <p>Insufficient data to train predictive model</p>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h6>Medical Record Trends</h6>
+                                </div>
+                                <div class="card-body">
+                                    {% if trends %}
+                                    <p><strong>Total Records (30 days):</strong> {{ trends.total_records }}</p>
+                                    <p><strong>Average Daily:</strong> {{ trends.average_daily }}</p>
+                                    <p><strong>Trend:</strong> 
+                                        {% if trends.trend == 'increasing' %}
+                                        <span class="text-success">Increasing</span>
+                                        {% elif trends.trend == 'decreasing' %}
+                                        <span class="text-danger">Decreasing</span>
+                                        {% else %}
+                                        <span class="text-info">Stable</span>
+                                        {% endif %}
+                                    </p>
+                                    <p><strong>Peak Day:</strong> {{ trends.peak_day }}</p>
+                                    {% else %}
+                                    <p class="text-muted">No trend data available</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Anomaly Chart
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check if we should render the admin charts
+        var isAdmin = "{{ session.user_role }}" === "admin";
+        
+        if (isAdmin) {
+            var ctx1 = document.getElementById('anomalyChart');
+            if (ctx1) {
+                ctx1 = ctx1.getContext('2d');
+                var anomalyChart = new Chart(ctx1, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Resolved', 'Unresolved'],
+                        datasets: [{
+                            data: [
+                                parseInt("{{ resolved_anomalies|default(0) }}"), 
+                                parseInt("{{ unresolved_anomalies|default(0) }}")
+                            ],
+                            backgroundColor: [
+                                'rgba(40, 167, 69, 0.8)',
+                                'rgba(255, 193, 7, 0.8)'
+                            ],
+                            borderColor: [
+                                'rgba(40, 167, 69, 1)',
+                                'rgba(255, 193, 7, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                            }
+                        }
+                    }
+                });
+            }
+            
+            // User Distribution Chart (admin only)
+            var ctx2 = document.getElementById('userChart');
+            if (ctx2) {
+                ctx2 = ctx2.getContext('2d');
+                var userChart = new Chart(ctx2, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Admins', 'Doctors', 'Nurses'],
+                        datasets: [{
+                            data: [
+                                parseInt("{{ admin_count|default(0) }}"), 
+                                parseInt("{{ doctor_count|default(0) }}"), 
+                                parseInt("{{ nurse_count|default(0) }}")
+                            ],
+                            backgroundColor: [
+                                'rgba(108, 117, 125, 0.8)',
+                                'rgba(0, 123, 255, 0.8)',
+                                'rgba(23, 162, 184, 0.8)'
+                            ],
+                            borderColor: [
+                                'rgba(108, 117, 125, 1)',
+                                'rgba(0, 123, 255, 1)',
+                                'rgba(23, 162, 184, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                            }
+                        }
+                    }
+                });
+            }
+        }
+    });
+</script>
+{% endblock %}

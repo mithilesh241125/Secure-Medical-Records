@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Medical Record - Secure Medical Records{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3>Edit Medical Record for {{ record.patient.name }}</h3>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    {{ form.csrf_token }}
+                    <div class="mb-3">
+                        <label for="diagnosis" class="form-label">Diagnosis</label>
+                        <textarea class="form-control" id="diagnosis" name="diagnosis" rows="3" required>{{ form.diagnosis.data or record.diagnosis }}</textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="treatment" class="form-label">Treatment</label>
+                        <textarea class="form-control" id="treatment" name="treatment" rows="3" required>{{ form.treatment.data or record.treatment }}</textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="prescription" class="form-label">Prescription</label>
+                        <textarea class="form-control" id="prescription" name="prescription" rows="3">{{ form.prescription.data or record.prescription or '' }}</textarea>
+                    </div>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a href="{{ url_for('main.view_record', record_id=record.id) }}" class="btn btn-secondary">Cancel</a>
+                        <button type="submit" class="btn btn-primary">Update Record</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

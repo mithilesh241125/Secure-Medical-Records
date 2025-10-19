@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Export Patient Data - Secure Medical Records{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3>Export Patient Data</h3>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-info">
+                    <h5><i class="bi bi-info-circle"></i> Data Export Information</h5>
+                    <p>You are about to export all medical records for patient <strong>{{ patient.name }}</strong> (MRN: {{ patient.medical_record_number }}).</p>
+                    <p>The export will include:</p>
+                    <ul>
+                        <li>Patient demographic information</li>
+                        <li>All medical records with diagnosis, treatment, and prescriptions</li>
+                        <li>Record creation and update timestamps</li>
+                    </ul>
+                    <p><strong>Note:</strong> This export is for authorized use only and should be handled according to healthcare data privacy regulations.</p>
+                </div>
+                
+                <form method="POST">
+                    {{ form.csrf_token }}
+                    <div class="mb-3">
+                        <label for="format" class="form-label">Export Format</label>
+                        <select class="form-control" id="format" name="format" required>
+                            <option value="pdf">PDF Document</option>
+                            <option value="csv">CSV File</option>
+                            <option value="json">JSON Data</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="includeAudit" name="includeAudit" checked>
+                            <label class="form-check-label" for="includeAudit">
+                                Include audit trail information
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a href="{{ url_for('main.view_patient', patient_id=patient.id) }}" class="btn btn-secondary">Cancel</a>
+                        <button type="submit" class="btn btn-primary">Export Data</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

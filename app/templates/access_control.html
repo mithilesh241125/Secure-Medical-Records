@@ -1,0 +1,300 @@
+{% extends "base.html" %}
+
+{% block title %}Access Control Matrix - Secure Medical Records{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Access Control Matrix</h1>
+    <div>
+        <a href="{{ url_for('main.dashboard') }}" class="btn btn-secondary">Back to Dashboard</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Role-Based Access Control</h5>
+            </div>
+            <div class="card-body">
+                <p class="text-muted">
+                    This matrix shows the permissions assigned to each user role in the system.
+                </p>
+                
+                <h5>Role Hierarchy</h5>
+                <p>The system implements the following role hierarchy (highest to lowest):</p>
+                <ol>
+                    <li><strong>Board Member</strong> (Highest)</li>
+                    <li><strong>Admin</strong></li>
+                    <li><strong>Doctor</strong></li>
+                    <li><strong>Nurse</strong> (Lowest)</li>
+                </ol>
+                <p>Higher-level roles automatically inherit permissions from lower-level roles.</p>
+                
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Feature/Functionality</th>
+                                <th>Nurse</th>
+                                <th>Doctor</th>
+                                <th>Admin</th>
+                                <th>Board Member</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="5" class="table-secondary"><strong>Authentication</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Login</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                            </tr>
+                            <tr>
+                                <td>Logout</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                            </tr>
+                            <tr>
+                                <td>Change Password</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" class="table-secondary"><strong>Dashboard</strong></td>
+                            </tr>
+                            <tr>
+                                <td>View Dashboard</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                            </tr>
+                            <tr>
+                                <td>View Analytics</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                            </tr>
+                            <tr>
+                                <td>View System Statistics</td>
+                                <td class="table-danger">❌</td>
+                                <td class="table-danger">❌</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" class="table-secondary"><strong>Patient Management</strong></td>
+                            </tr>
+                            <tr>
+                                <td>View Patient List</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                            </tr>
+                            <tr>
+                                <td>Search Patients</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                            </tr>
+                            <tr>
+                                <td>View Patient Details</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                            </tr>
+                            <tr>
+                                <td>View Patient Summary</td>
+                                <td class="table-danger">❌</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                            </tr>
+                            <tr>
+                                <td>Add New Patient</td>
+                                <td class="table-danger">❌</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                            </tr>
+                            <tr>
+                                <td>Edit Patient Information</td>
+                                <td class="table-danger">❌</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                            </tr>
+                            <tr>
+                                <td>Export Patient Data</td>
+                                <td class="table-danger">❌</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" class="table-secondary"><strong>Medical Records</strong></td>
+                            </tr>
+                            <tr>
+                                <td>View Medical Records</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                            </tr>
+                            <tr>
+                                <td>Add Medical Record</td>
+                                <td class="table-danger">❌</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                            </tr>
+                            <tr>
+                                <td>Edit Medical Record</td>
+                                <td class="table-danger">❌</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                            </tr>
+                            <tr>
+                                <td>View Record Integrity Status</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                            </tr>
+                            <tr>
+                                <td>View Decrypted Record Data</td>
+                                <td class="table-danger">❌</td>
+                                <td class="table-danger">❌</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" class="table-secondary"><strong>System Administration</strong></td>
+                            </tr>
+                            <tr>
+                                <td>View User List</td>
+                                <td class="table-danger">❌</td>
+                                <td class="table-danger">❌</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                            </tr>
+                            <tr>
+                                <td>Add New User</td>
+                                <td class="table-danger">❌</td>
+                                <td class="table-danger">❌</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                            </tr>
+                            <tr>
+                                <td>Edit User Information</td>
+                                <td class="table-danger">❌</td>
+                                <td class="table-danger">❌</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                            </tr>
+                            <tr>
+                                <td>Delete User</td>
+                                <td class="table-danger">❌</td>
+                                <td class="table-danger">❌</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" class="table-secondary"><strong>Audit & Security</strong></td>
+                            </tr>
+                            <tr>
+                                <td>View Audit Logs</td>
+                                <td class="table-danger">❌</td>
+                                <td class="table-danger">❌</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                            </tr>
+                            <tr>
+                                <td>View Record Audit Trail</td>
+                                <td class="table-danger">❌</td>
+                                <td class="table-danger">❌</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-danger">❌</td>
+                            </tr>
+                            <tr>
+                                <td>View Anomalies/Notifications</td>
+                                <td class="table-danger">❌</td>
+                                <td class="table-danger">❌</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                            </tr>
+                            <tr>
+                                <td>Resolve Anomalies</td>
+                                <td class="table-danger">❌</td>
+                                <td class="table-danger">❌</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                            </tr>
+                            <tr>
+                                <td>View Access Control Matrix</td>
+                                <td class="table-danger">❌</td>
+                                <td class="table-danger">❌</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" class="table-secondary"><strong>Special Permissions</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Access Control Management</td>
+                                <td class="table-danger">❌</td>
+                                <td class="table-danger">❌</td>
+                                <td class="table-success">✅</td>
+                                <td class="table-success">✅</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="mt-4">
+                    <h5>Role Descriptions</h5>
+                    
+                    <h6>Nurse</h6>
+                    <p>Nurses have the most limited access, focusing primarily on viewing patient information and medical records. They can view patient lists and details, view medical records, and access the dashboard for basic analytics.</p>
+                    
+                    <h6>Doctor</h6>
+                    <p>Doctors have broader permissions focused on patient care, including all nurse permissions, adding and editing patient information, creating and updating medical records, viewing patient summaries, and exporting patient data.</p>
+                    
+                    <h6>Admin</h6>
+                    <p>Administrators have comprehensive system management permissions, including all doctor permissions, managing user accounts (create, edit, delete), viewing and managing audit logs, monitoring system anomalies, accessing detailed system statistics, and resolving security anomalies.</p>
+                    
+                    <h6>Board Member</h6>
+                    <p>Board members have the highest level of access with a focus on oversight, including all admin permissions except user management, viewing decrypted medical record data, accessing comprehensive analytics, and monitoring system integrity.</p>
+                </div>
+                
+                <div class="mt-4">
+                    <h5>Security Features</h5>
+                    <ul>
+                        <li><strong>Immutable Audit Trails:</strong> All user actions are logged with timestamp, user ID, and IP address</li>
+                        <li><strong>Data Integrity Verification:</strong> Medical records are protected with SHA-256 cryptographic hashing</li>
+                        <li><strong>Anomaly Detection:</strong> Real-time monitoring for suspicious activities</li>
+                        <li><strong>Session Management:</strong> Automatic timeout after 30 minutes of inactivity</li>
+                        <li><strong>IP Binding:</strong> Sessions are bound to IP addresses to prevent hijacking</li>
+                        <li><strong>CSRF Protection:</strong> All forms are protected against cross-site request forgery</li>
+                        <li><strong>Data Encryption:</strong> All sensitive medical data is encrypted at rest</li>
+                        <li><strong>Role-Based Access Control:</strong> Hierarchical permissions based on user roles</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

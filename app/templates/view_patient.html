@@ -1,0 +1,227 @@
+{% extends "base.html" %}
+
+{% block title %}{{ patient.name }} - Secure Medical Records{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>{{ patient.name }}</h1>
+    <div>
+        {% if session.user_role == 'doctor' %}
+        <a href="{{ url_for('main.patient_summary', patient_id=patient.id) }}" class="btn btn-success">Patient Summary</a>
+        <a href="{{ url_for('main.export_patient_data', patient_id=patient.id) }}" class="btn btn-info">Export Data</a>
+        <a href="{{ url_for('main.edit_patient', patient_id=patient.id) }}" class="btn btn-warning">Edit Patient</a>
+        <a href="{{ url_for('main.add_record', patient_id=patient.id) }}" class="btn btn-primary">Add Medical Record</a>
+        {% endif %}
+        <a href="{{ url_for('main.patients') }}" class="btn btn-secondary">Back to Patients</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5>Patient Information</h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-borderless">
+                    <tr>
+                        <th>Medical Record Number:</th>
+                        <td>{{ patient.medical_record_number }}</td>
+                    </tr>
+                    <tr>
+                        <th>Date of Birth:</th>
+                        <td>{{ patient.dob }} (Age: {{ patient.age }})</td>
+                    </tr>
+                    <tr>
+                        <th>Gender:</th>
+                        <td>{{ patient.gender }}</td>
+                    </tr>
+                    {% if patient.blood_type %}
+                    <tr>
+                        <th>Blood Type:</th>
+                        <td>{{ patient.blood_type }}</td>
+                    </tr>
+                    {% endif %}
+                    {% if patient.phone %}
+                    <tr>
+                        <th>Phone:</th>
+                        <td>{{ patient.phone }}</td>
+                    </tr>
+                    {% endif %}
+                    {% if patient.email %}
+                    <tr>
+                        <th>Email:</th>
+                        <td>{{ patient.email }}</td>
+                    </tr>
+                    {% endif %}
+                    <tr>
+                        <th>Registered:</th>
+                        <td>{{ patient.created_at | datetime_utc('%Y-%m-%d %H:%M') }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card text-white bg-primary">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h5 class="card-title">Records</h5>
+                                <h2>{{ total_records|default(0) }}</h2>
+                            </div>
+                            <div class="fs-1">
+                                <i class="bi bi-file-medical"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card text-white bg-success">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h5 class="card-title">Doctors</h5>
+                                <h2>{{ doctors_count|default(0) }}</h2>
+                            </div>
+                            <div class="fs-1">
+                                <i class="bi bi-people"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% if patient.address or patient.allergies or patient.emergency_contact_name or patient.emergency_contact_phone %}
+        <div class="card mt-3">
+            <div class="card-header">
+                <h5>Additional Information</h5>
+            </div>
+            <div class="card-body">
+                {% if patient.address %}
+                <div class="mb-3">
+                    <strong>Address:</strong>
+                    <p>{{ patient.address }}</p>
+                </div>
+                {% endif %}
+                {% if patient.allergies %}
+                <div class="mb-3">
+                    <strong>Allergies:</strong>
+                    <p>{{ patient.allergies }}</p>
+                </div>
+                {% endif %}
+                {% if patient.emergency_contact_name or patient.emergency_contact_phone %}
+                <div>
+                    <strong>Emergency Contact:</strong>
+                    <p>
+                        {% if patient.emergency_contact_name %}{{ patient.emergency_contact_name }}{% endif %}
+                        {% if patient.emergency_contact_phone %}<br>{{ patient.emergency_contact_phone }}{% endif %}
+                    </p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="card mt-4">
+    <div class="card-header">
+        <h5>Medical Records</h5>
+    </div>
+    <div class="card-body">
+        {% if records.items %}
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        {% if session.user_role == 'doctor' %}
+                        <th>Doctor</th>
+                        {% endif %}
+                        <th>Diagnosis</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for record in records.items %}
+                    <tr>
+                        <td>{{ record.created_at | datetime_utc('%Y-%m-%d') }}</td>
+                        {% if session.user_role == 'doctor' %}
+                        <td>{{ record.doctor.username }}</td>
+                        {% endif %}
+                        <td>
+                            {% if record.diagnosis == '[ENCRYPTED]' and session.user_role in ['doctor', 'admin', 'board_member'] %}
+                                <em>Decrypted data available</em>
+                            {% elif record.diagnosis == '[ENCRYPTED]' %}
+                                <em>Encrypted data</em>
+                            {% else %}
+                                {{ record.diagnosis_summary }}
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a href="{{ url_for('main.view_record', record_id=record.id) }}" class="btn btn-sm btn-outline-primary">View</a>
+                            {% if session.user_role == 'doctor' %}
+                            <a href="{{ url_for('main.edit_record', record_id=record.id) }}" class="btn btn-sm btn-outline-secondary">Edit</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Pagination -->
+        {% if records.pages > 1 %}
+        <nav aria-label="Medical records pagination">
+            <ul class="pagination justify-content-center">
+                {% if records.has_prev %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ url_for('main.view_patient', patient_id=patient.id, page=records.prev_num) }}">Previous</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <span class="page-link">Previous</span>
+                </li>
+                {% endif %}
+                
+                {% for page_num in records.iter_pages() %}
+                    {% if page_num %}
+                        {% if page_num != records.page %}
+                        <li class="page-item">
+                            <a class="page-link" href="{{ url_for('main.view_patient', patient_id=patient.id, page=page_num) }}">{{ page_num }}</a>
+                        </li>
+                        {% else %}
+                        <li class="page-item active">
+                            <span class="page-link">{{ page_num }}</span>
+                        </li>
+                        {% endif %}
+                    {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link">…</span>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+                
+                {% if records.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ url_for('main.view_patient', patient_id=patient.id, page=records.next_num) }}">Next</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <span class="page-link">Next</span>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+        
+        {% else %}
+        <p>No medical records found for this patient.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

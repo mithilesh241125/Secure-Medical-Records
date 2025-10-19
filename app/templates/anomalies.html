@@ -1,0 +1,278 @@
+{% extends "base.html" %}
+
+{% block title %}Anomaly Detection - Secure Medical Records{% endblock %}
+
+{% block content %}
+<h1>Anomaly Detection</h1>
+
+<!-- Summary Cards -->
+<div class="row mb-4">
+    <div class="col-md-4">
+        <div class="card text-white bg-danger">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h5 class="card-title">Unresolved</h5>
+                        <h2>
+                            {% set unresolved_count = anomalies.items|selectattr('is_resolved', 'equalto', False)|list|length %}
+                            {{ unresolved_count }}
+                        </h2>
+                    </div>
+                    <div class="fs-1">
+                        <i class="bi bi-exclamation-circle"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-success">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h5 class="card-title">Resolved</h5>
+                        <h2>
+                            {% set resolved_count = anomalies.items|selectattr('is_resolved', 'equalto', True)|list|length %}
+                            {{ resolved_count }}
+                        </h2>
+                    </div>
+                    <div class="fs-1">
+                        <i class="bi bi-check-circle"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-primary">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h5 class="card-title">Total</h5>
+                        <h2>{{ anomalies.total|default(0) }}</h2>
+                    </div>
+                    <div class="fs-1">
+                        <i class="bi bi-activity"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5>Security Incident Reports</h5>
+    </div>
+    <div class="card-body">
+        {% if anomalies.items %}
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>User</th>
+                        <th>Action</th>
+                        <th>Details</th>
+                        <th>Patient MRN</th>
+                        <th>IP Address</th>
+                        <th>Status</th>
+                        <th>Timestamp</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if enhanced_anomalies %}
+                    {% for item in enhanced_anomalies %}
+                    <tr class="{% if not item.anomaly.is_resolved %}table-warning{% endif %}">
+                        <td>
+                            <span class="badge bg-secondary">{{ item.anomaly.user.username }}</span>
+                        </td>
+                        <td>
+                            {% if item.anomaly.action == 'record_integrity_violation' %}
+                            <span class="badge bg-danger">{{ item.anomaly.action }}</span>
+                            {% elif item.anomaly.action == 'multiple_integrity_violations' %}
+                            <span class="badge bg-danger">{{ item.anomaly.action }}</span>
+                            {% elif item.anomaly.action == 'suspicious_activity_rate' %}
+                            <span class="badge bg-warning">{{ item.anomaly.action }}</span>
+                            {% else %}
+                            <span class="badge bg-info">{{ item.anomaly.action }}</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a href="{{ url_for('main.view_anomaly', anomaly_id=item.anomaly.id) }}" 
+                               class="btn btn-sm btn-outline-info">
+                                View Details
+                            </a>
+                        </td>
+                        <td>{{ item.patient_mrn or 'N/A' }}</td>
+                        <td>{{ item.anomaly.ip_address }}</td>
+                        <td>
+                            {% if item.anomaly.is_resolved %}
+                            <span class="badge bg-success">Resolved</span>
+                            {% else %}
+                            <span class="badge bg-warning">Unresolved</span>
+                            {% endif %}
+                        </td>
+                        <td>{{ item.anomaly.timestamp | datetime_utc('%Y-%m-%d %H:%M:%S') }}</td>
+                        <td>
+                            {% if not item.anomaly.is_resolved %}
+                            <a href="{{ url_for('main.resolve_anomaly', anomaly_id=item.anomaly.id) }}" 
+                               class="btn btn-sm btn-outline-primary"
+                               onclick="return confirm('Mark this anomaly as resolved?')">
+                                Mark Resolved
+                            </a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    {% else %}
+                    {% for anomaly in anomalies.items %}
+                    <tr class="{% if not anomaly.is_resolved %}table-warning{% endif %}">
+                        <td>
+                            <span class="badge bg-secondary">{{ anomaly.user.username }}</span>
+                        </td>
+                        <td>
+                            {% if anomaly.action == 'record_integrity_violation' %}
+                            <span class="badge bg-danger">{{ anomaly.action }}</span>
+                            {% elif anomaly.action == 'multiple_integrity_violations' %}
+                            <span class="badge bg-danger">{{ anomaly.action }}</span>
+                            {% elif anomaly.action == 'suspicious_activity_rate' %}
+                            <span class="badge bg-warning">{{ anomaly.action }}</span>
+                            {% else %}
+                            <span class="badge bg-info">{{ anomaly.action }}</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a href="{{ url_for('main.view_anomaly', anomaly_id=anomaly.id) }}" 
+                               class="btn btn-sm btn-outline-info">
+                                View Details
+                            </a>
+                        </td>
+                        <td>N/A</td>
+                        <td>{{ anomaly.ip_address }}</td>
+                        <td>
+                            {% if anomaly.is_resolved %}
+                            <span class="badge bg-success">Resolved</span>
+                            {% else %}
+                            <span class="badge bg-warning">Unresolved</span>
+                            {% endif %}
+                        </td>
+                        <td>{{ anomaly.timestamp | datetime_utc('%Y-%m-%d %H:%M:%S') }}</td>
+                        <td>
+                            {% if not anomaly.is_resolved %}
+                            <a href="{{ url_for('main.resolve_anomaly', anomaly_id=anomaly.id) }}" 
+                               class="btn btn-sm btn-outline-primary"
+                               onclick="return confirm('Mark this anomaly as resolved?')">
+                                Mark Resolved
+                            </a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Pagination -->
+        <nav aria-label="Anomalies pagination">
+            <ul class="pagination justify-content-center">
+                {% if anomalies.has_prev %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ url_for('main.anomalies', page=anomalies.prev_num) }}">Previous</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <span class="page-link">Previous</span>
+                </li>
+                {% endif %}
+                
+                {% for page_num in anomalies.iter_pages() %}
+                    {% if page_num %}
+                        {% if page_num != anomalies.page %}
+                        <li class="page-item">
+                            <a class="page-link" href="{{ url_for('main.anomalies', page=page_num) }}">{{ page_num }}</a>
+                        </li>
+                        {% else %}
+                        <li class="page-item active">
+                            <span class="page-link">{{ page_num }}</span>
+                        </li>
+                        {% endif %}
+                    {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link">…</span>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+                
+                {% if anomalies.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ url_for('main.anomalies', page=anomalies.next_num) }}">Next</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <span class="page-link">Next</span>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% else %}
+        <div class="alert alert-success text-center">
+            <h5>No anomalies detected.</h5>
+            <p>The system security monitoring shows no incidents.</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Anomaly Types Distribution -->
+<div class="card mt-4">
+    <div class="card-header">
+        <h5>Anomaly Types Distribution</h5>
+    </div>
+    <div class="card-body">
+        {% set action_counts = {} %}
+        {% for anomaly in anomalies.items %}
+            {% if anomaly.action in action_counts %}
+                {% set _ = action_counts.update({anomaly.action: action_counts[anomaly.action] + 1}) %}
+            {% else %}
+                {% set _ = action_counts.update({anomaly.action: 1}) %}
+            {% endif %}
+        {% endfor %}
+        
+        {% if action_counts %}
+        <div class="row">
+            {% for action, count in action_counts.items() %}
+            <div class="col-md-3 mb-3">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5>{{ action }}</h5>
+                        <h2>{{ count }}</h2>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" 
+                                 aria-valuenow="{{ count }}" 
+                                 aria-valuemin="0" 
+                                 aria-valuemax="{{ anomalies.total }}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="text-muted">No anomalies to display</p>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+    // Initialize tooltips
+    document.addEventListener('DOMContentLoaded', function() {
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    });
+</script>
+{% endblock %}
